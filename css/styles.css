@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     --main-dark: #3a3633;
     --main-light: white;
+    --breakpoint: 768px;
     font-family: 'Poppins', sans serif;
 }
 
@@ -18,33 +23,117 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px;
     background-color: var(--main-dark);
     z-index: 10;
 }
 
-.nav img {
+.logo {
+    display: block;
     height: 50px;
+    padding: 0 30px;
 }
 
-.nav img:hover {
+.logo:hover {
     transition: ease all 500ms;
     opacity: 0.5;
 }
 
-.nav a {
+.nav-links {
     color: var(--main-light);
     text-decoration: none;
     padding: 0 50px;
 }
 
-.nav li:hover {
+.nav-links:after {
+    content: "";
+    width: 0;
+    display: block;
     border-bottom: 5px solid var(--main-light);
+}
+
+.nav-links:hover:after {
+    transition: all ease 0.2s;
+    width: 100%;
+}
+
+.nav li {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .menu-items {
     display: flex;
     align-items: center;
+}
+
+.products-dropdown {
+    display: none;
+    position: fixed;
+    top: 50px;
+    background-color: var(--main-dark);
+}
+
+.products-dropdown li {
+    padding: 20px 0;
+}
+
+.dropdown-menu:hover > .products-dropdown {
+    display: block;
+}
+
+.products-dropdown a {
+    color: var(--main-light);
+    text-decoration: none;
+    padding: 0 50px;
+}
+
+.products-dropdown li:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- NAV RESPONSIVE ---------- */
+
+.hamburger {
+    display: none;
+    height: 30px;
+    align-self: center;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-items {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav:hover > .menu-items {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: 50px;
+        background-color: var(--main-dark);
+    }
+
+    .nav:hover > .menu-items li {
+        display: flex;
+        justify-content: center;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    .nav:hover > .menu-items .dropdown-menu {
+        display: none;
+    }
+
+    .menu-items li:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
 }
 
 /* ---------- HERO ---------- */
@@ -53,8 +142,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
-    height: 100vh;
+    margin-top: 50px;
+    height: calc(100vh - 50px);
     background-image: url('../imgs/bg.jpg');
     background-position: center;
     background-size: cover;
@@ -93,6 +182,38 @@ h1 {
     width: 50%;
     padding: 40px 10px 0;
     line-height: 1.5;
+}
+
+/* ---------- HERO RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+    .hero-container {
+        height: 100%;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        border: none;
+        padding: 20px 0 40px;
+    }
+
+    .hero-sub-heading {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 3em;
+        padding-bottom: 20px;
+    }
+
+    .hero-sub-heading h2 {
+        font-size: 1.5em;
+    }
+    
+    .hero-sub-heading p {
+        width: 100%;
+    }
+
 }
 
 /* ---------- FEATURES ---------- */
@@ -163,6 +284,20 @@ h1 {
     font-size: 1.2em;
 }
 
+@media (max-width: 768px) {
+    .dark-section {
+        padding: 100px 50px;
+    }
+
+    .dark-section h2 {
+        font-size: 2em;
+    }
+
+    .dark-section p {
+        font-size: 1em;
+    }
+}
+
 /* ---------- COOL HOVER ---------- */
 
 .cool-hover {
@@ -210,6 +345,20 @@ h1 {
     font-size: 1.2em;
 }
 
+@media (max-width: 768px) {
+    .gradient-section {
+        padding: 100px 50px;
+    }
+
+    .gradient-section h2 {
+        font-size: 2em;
+    }
+
+    .gradient-section p {
+        font-size: 1em;
+    }
+}
+
 /* ---------- GALLERY SECTION ---------- */
 
 .gallery-container {
@@ -221,7 +370,7 @@ h1 {
 }
 
 .gallery-item {
-    width: 33.33%;
+    flex: 33.33%;
     height: 250px;
     overflow: hidden;
     position: relative;
@@ -254,6 +403,12 @@ h1 {
 .gallery-item:hover > .gallery-item-text {
     display: block;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 100%;
+    }
 }
 
 /* ---------- MAILING LIST ---------- */
@@ -334,4 +489,15 @@ h1 {
     transition: all ease 0.2s;
     text-decoration: underline;
     color: var(--main-dark);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-wrap: wrap;
+    }
+
+    .footer ul {
+        flex: 50%;
+        padding: 0 30px;
+    }
 }

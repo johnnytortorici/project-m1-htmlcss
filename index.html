@@ -9,18 +9,32 @@
 
   <body>
     <nav class="nav">
-      <a href="#"><img src="imgs/logo.svg" alt="Logo" /></a>
+      <a href="#top"><img src="imgs/logo.svg" alt="Logo" class="logo" /></a>
+      <img src="imgs/menu.svg" alt="Hamburger Icon" class="hamburger" />
       <ul class="menu-items">
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Advantages</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="#features" class="nav-links">Features</a></li>
+        <li><a href="#advantages" class="nav-links">Advantages</a></li>
+        <li><a href="#gallery" class="nav-links">Gallery</a></li>
+        <li class="dropdown-menu">
+          <a href="#" class="nav-links">Products</a>
+          <ul class="products-dropdown">
+            <li>
+              <a href="https://www.spacex.com/vehicles/falcon-9/" target="_blank">Falcon 9</a>
+            </li>
+            <li>
+              <a href="https://www.tesla.com/en_ca/models" target="_blank">Model S</a>
+            </li>
+            <li>
+              <a href="https://www.apple.com/ca/iphone/" target="_blank">iPhone</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
 
     <header class="hero-container">
       <div class="hero-content">
-        <div class="hero-heading">
+        <div>
           <h1>Introducing Falcon 9</h1>
         </div>
         <div class="hero-sub-heading">
@@ -31,7 +45,7 @@
       </div>
     </header>
 
-    <section class="features-container">
+    <section class="features-container" id="features">
       <div class="features">
         <img src="imgs/icon1.svg" alt="Checkmark Icon" />
         <h3>Amazing feature 1</h3>
@@ -52,7 +66,7 @@
       </div>
     </section>
 
-    <section class="dark-section">
+    <section class="dark-section" id="advantages">
       <h2>Some cool text</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
     </section>
@@ -67,7 +81,7 @@
       <p>Lorem ipsum?</p>
     </section>
 
-    <section class="gallery-container">
+    <section class="gallery-container" id="gallery">
       <div class="gallery-item">
         <span class="gallery-item-text">Our flagship car: The Model S</span>
         <img src="imgs/tesla.jpg" alt="Tesla" />
